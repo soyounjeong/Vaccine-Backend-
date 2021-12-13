@@ -2,6 +2,7 @@ package com.project.third_project.Entity.users;
 
 import com.nimbusds.openid.connect.sdk.claims.Gender;
 import com.project.third_project.Entity.BaseTimeEntity;
+import com.project.third_project.Entity.reservation.Reservation;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -46,6 +47,9 @@ public class Users extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
+
+    @OneToOne(mappedBy = "users")
+    private Reservation reservation;
 
 
 

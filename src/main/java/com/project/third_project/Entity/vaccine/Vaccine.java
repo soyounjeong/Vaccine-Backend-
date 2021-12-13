@@ -1,7 +1,5 @@
-package com.project.third_project.Entity.hospital;
+package com.project.third_project.Entity.vaccine;
 
-import com.project.third_project.Entity.BaseTimeEntity;
-import com.project.third_project.Entity.reservation.Reservation;
 import com.project.third_project.Entity.storage.Storage;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,8 +10,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Hospital extends BaseTimeEntity {
-
+public class Vaccine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,16 +18,12 @@ public class Hospital extends BaseTimeEntity {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, length = 500)
-    private String address;
+    @Column(nullable = false)
+    private String region;
 
     @Column(nullable = false)
-    private String hp;
+    private String expiration;
 
-    @OneToMany
+    @OneToMany(mappedBy = "vaccine")
     private List<Storage> storageList;
-
-    @OneToOne(mappedBy = "hospital")
-    private Reservation reservation;
-
 }
