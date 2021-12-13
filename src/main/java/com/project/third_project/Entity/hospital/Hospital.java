@@ -3,6 +3,7 @@ package com.project.third_project.Entity.hospital;
 import com.project.third_project.Entity.BaseTimeEntity;
 import com.project.third_project.Entity.reservation.Reservation;
 import com.project.third_project.Entity.storage.Storage;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -32,5 +33,12 @@ public class Hospital extends BaseTimeEntity {
 
     @OneToOne(mappedBy = "hospital")
     private Reservation reservation;
+
+    @Builder
+    public Hospital(String name, String address, String hp){
+        this.name = name;
+        this.address = address;
+        this.hp = hp;
+    }
 
 }

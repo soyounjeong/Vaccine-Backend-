@@ -1,6 +1,7 @@
 package com.project.third_project.Controller;
 
 import com.project.third_project.Service.HospitalService;
+import com.project.third_project.dto.HospitalRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,5 +15,7 @@ public class HospitalApiController {
     private final HospitalService hospitalService;
 
     @PostMapping("/api/hospital")
-    public Long save(@RequestBody)
+    public Long save(@RequestBody HospitalRequest hospitalRequest){
+        return hospitalService.save(hospitalRequest);
+    }
 }
