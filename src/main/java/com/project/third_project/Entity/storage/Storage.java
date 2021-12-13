@@ -20,9 +20,6 @@ public class Storage {
     private Long hospitalId;
 
     @Column(nullable = false)
-    private Long vaccineId;
-
-    @Column(nullable = false)
     private  Long quantity;
 
     @OneToMany

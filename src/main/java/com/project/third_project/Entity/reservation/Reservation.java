@@ -21,18 +21,6 @@ public class Reservation {
     @Column(nullable = false)
     private Status status;
 
-    @Column(nullable = false)
-    private int usersId;
-
-    @Column(nullable = false)
-    private int hospitalId;
-
-    @Column(nullable = false)
-    private int availableDateId;
-
-    @Column(nullable = false)
-    private int availableTimeId;
-
     @OneToOne
     private Users users;
 

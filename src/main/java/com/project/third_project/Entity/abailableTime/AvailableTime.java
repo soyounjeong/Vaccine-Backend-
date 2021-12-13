@@ -16,9 +16,6 @@ public class AvailableTime {
     private Long id;
 
     @Column(nullable = false)
-    private Long availableDateId;
-
-    @Column(nullable = false)
     private String time;
 
     @Column(nullable = false)
