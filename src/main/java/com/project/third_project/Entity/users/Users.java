@@ -2,6 +2,7 @@ package com.project.third_project.Entity.users;
 
 import com.project.third_project.Entity.BaseTimeEntity;
 import com.project.third_project.Entity.reservation.Reservation;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -27,6 +28,9 @@ public class Users extends BaseTimeEntity {
     private Gender gender;
 
     @Column(nullable = false)
+    private int age;
+
+    @Column(nullable = false)
     private String address;
 
     @Column(nullable = false)
@@ -50,6 +54,31 @@ public class Users extends BaseTimeEntity {
     @OneToOne(mappedBy = "users")
     private Reservation reservation;
 
+    @Builder
+    public Users(String name, String pw, Gender gender, int age, String address, String addressDetail, String hp, Vaccination first, Vaccination second, Role role){
+        this.name = name;
+        this.pw = pw;
+        this.gender = gender;
+        this.age = age;
+        this.address = address;
+        this.addressDetail = addressDetail;
+        this.hp = hp;
+        this.first = first;
+        this.second= second;
+        this.role = role;
+    }
 
+    public void update(String name, String pw, Gender gender, int age, String address, String addressDetail, String hp, Vaccination first, Vaccination second, Role role){
+        this.name = name;
+        this.pw = pw;
+        this.gender = gender;
+        this.age = age;
+        this.address = address;
+        this.addressDetail = addressDetail;
+        this.hp = hp;
+        this.first = first;
+        this.second= second;
+        this.role = role;
+    }
 
 }
