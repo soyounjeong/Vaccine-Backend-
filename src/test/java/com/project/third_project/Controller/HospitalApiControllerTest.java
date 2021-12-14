@@ -3,13 +3,14 @@ package com.project.third_project.Controller;
 import com.project.third_project.Entity.hospital.Hospital;
 import com.project.third_project.Entity.hospital.HospitalRepository;
 import com.project.third_project.dto.HospitalRequest;
+import org.aspectj.lang.annotation.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,6 +27,11 @@ class HospitalApiControllerTest {
 
     @Autowired
     private HospitalRepository hospitalRepository;
+
+    @AfterEach
+    public void delete() throws Exception{
+        hospitalRepository.deleteAll();
+    }
 
     @Test
     void save() throws Exception{
@@ -50,4 +56,61 @@ class HospitalApiControllerTest {
         assertThat(all.get(0).getAddress()).isEqualTo(address);
         assertThat(all.get(0).getHp()).isEqualTo(hp);
     }
+
+    @Test
+    void update() throws Exception{
+        Hospital savehospital = hospitalRepository.save(Hospital.builder()
+                .address("address")
+                .hp("hp")
+                .name("name")
+                .build());
+
+        Long updateId = savehospital.getId();
+        String Updateaddress = "서초구";
+        String Updatehp = "01099999999";
+        String Updatename = "공주";
+
+        HospitalRequest hospitalRequest = HospitalRequest.builder()
+                .address(Updateaddress)
+                .hp(Updatehp)
+                .name(Updatename)
+                .build();
+        String url = "http://localhost:" + port + "/api/hospital/" + updateId;
+
+        HttpEntity<HospitalRequest> hospitalRequestHttpEntity = new HttpEntity<>(hospitalRequest);
+        //when
+        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, hospitalRequestHttpEntity, Long.class);
+
+        //then
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody()).isGreaterThan(0L);
+
+        List<Hospital> all = hospitalRepository.findAll();
+        assertThat(all.get(0).getAddress()).isEqualTo(Updateaddress);
+        assertThat(all.get(0).getHp()).isEqualTo(Updatehp);
+        assertThat(all.get(0).getName()).isEqualTo(Updatename);
+    }
+
+    @Test
+    public void 삭제() throws Exception{
+        Hospital savehospital = hospitalRepository.save(Hospital.builder()
+                .address("address")
+                .hp("hp")
+                .name("name")
+                .build());
+        Long Id = savehospital.getId();
+
+        String url = "http://localhost:" + port + "/api/hospital/" + Id;
+        HttpEntity<Hospital> saveEntity = new HttpEntity<>(savehospital);
+        //when
+        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.DELETE, saveEntity, Long.class);
+
+        //then
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody()).isGreaterThan(0L);
+
+        List<Hospital> deleted = hospitalRepository.findAll();
+        assertThat(deleted).isEmpty();
+    }
+
 }

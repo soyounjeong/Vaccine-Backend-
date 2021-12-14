@@ -41,4 +41,10 @@ public class Hospital extends BaseTimeEntity {
         this.hp = hp;
     }
 
+    public void update(String name, String address, String hp){
+        this.name = name;
+        this.address = address;
+        this.hp = hp;
+    }
+
 }
