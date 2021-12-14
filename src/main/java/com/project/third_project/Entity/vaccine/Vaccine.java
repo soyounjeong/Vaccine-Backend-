@@ -1,6 +1,7 @@
 package com.project.third_project.Entity.vaccine;
 
 import com.project.third_project.Entity.storage.Storage;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,4 +27,17 @@ public class Vaccine {
 
     @OneToMany(mappedBy = "vaccine")
     private List<Storage> storageList;
+
+    @Builder
+    public Vaccine(String name, String region, String expiration){
+        this.name = name;
+        this.region = region;
+        this.expiration = expiration;
+    }
+
+    public void update(String name, String region, String expiration){
+        this.name = name;
+        this.region = region;
+        this.expiration = expiration;
+    }
 }

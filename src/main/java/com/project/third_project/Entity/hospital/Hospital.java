@@ -28,7 +28,7 @@ public class Hospital extends BaseTimeEntity {
     @Column(nullable = false)
     private String hp;
 
-    @OneToMany
+    @OneToMany(mappedBy = "hospital")
     private List<Storage> storageList;
 
     @OneToOne(mappedBy = "hospital")
