@@ -1,6 +1,6 @@
 package com.project.third_project.dto;
 
-import com.project.third_project.Entity.vaccine.Vaccine;
+import com.project.third_project.entity.vaccine.Vaccine;
 import lombok.Getter;
 
 @Getter

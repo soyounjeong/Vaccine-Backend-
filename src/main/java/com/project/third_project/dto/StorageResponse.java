@@ -1,6 +1,6 @@
 package com.project.third_project.dto;
 
-import com.project.third_project.Entity.storage.Storage;
+import com.project.third_project.entity.storage.Storage;
 import lombok.Getter;
 
 @Getter

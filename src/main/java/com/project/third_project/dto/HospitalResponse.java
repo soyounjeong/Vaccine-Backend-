@@ -1,7 +1,6 @@
 package com.project.third_project.dto;
 
-import com.project.third_project.Entity.hospital.Hospital;
-import lombok.Builder;
+import com.project.third_project.entity.hospital.Hospital;
 import lombok.Getter;
 
 

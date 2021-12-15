@@ -1,13 +1,8 @@
 package com.project.third_project.dto;
 
-import com.project.third_project.Entity.hospital.Hospital;
-import com.project.third_project.Entity.storage.Storage;
-import com.project.third_project.Entity.vaccine.Vaccine;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Getter
 @NoArgsConstructor

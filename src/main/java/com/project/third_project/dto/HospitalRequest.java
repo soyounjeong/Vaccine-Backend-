@@ -1,12 +1,9 @@
 package com.project.third_project.dto;
 
-import com.project.third_project.Entity.hospital.Hospital;
+import com.project.third_project.entity.hospital.Hospital;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor

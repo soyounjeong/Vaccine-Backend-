@@ -1,9 +1,9 @@
 package com.project.third_project.dto;
 
-import com.project.third_project.Entity.users.Gender;
-import com.project.third_project.Entity.users.Role;
-import com.project.third_project.Entity.users.Users;
-import com.project.third_project.Entity.users.Vaccination;
+import com.project.third_project.entity.users.Gender;
+import com.project.third_project.entity.users.Role;
+import com.project.third_project.entity.users.Users;
+import com.project.third_project.entity.users.Vaccination;
 import lombok.Getter;
 
 @Getter
