@@ -37,4 +37,10 @@ public class Storage {
         this.vaccine = vaccine;
         this.quantity = quantity;
     }
+
+    public void update(Hospital hospital, Vaccine vaccine, Long quantity){
+        this.hospital = hospital;
+        this.vaccine = vaccine;
+        this.quantity = quantity;
+    }
 }

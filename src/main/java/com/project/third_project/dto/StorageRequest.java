@@ -12,22 +12,16 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 public class StorageRequest {
-    private Hospital hospital;
-    private Vaccine vaccine;
+    private Long hospitalId;
+    private Long vaccineId;
     private Long quantity;
 
     @Builder
-    public StorageRequest(Hospital hospital, Vaccine vaccine, Long quantity){
-        this.hospital = hospital;
-        this.vaccine = vaccine;
+    public StorageRequest(Long hospitalId, Long vaccineId, Long quantity){
+        this.hospitalId = hospitalId;
+        this.vaccineId = vaccineId;
         this.quantity = quantity;
     }
 
-    public Storage toEntity(){
-        return Storage.builder()
-                .hospital(hospital)
-                .vaccine(vaccine)
-                .quantity(quantity)
-                .build();
-    }
+
 }

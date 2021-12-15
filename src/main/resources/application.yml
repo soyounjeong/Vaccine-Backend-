@@ -1,0 +1,2 @@
+mysql.db.jdbc.driver : com.mysql.jdbc.Driver
+mysql.db.jdbc.url : 25.42.204.241:3306/re
