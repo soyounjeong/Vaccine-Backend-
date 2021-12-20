@@ -38,4 +38,8 @@ public class Vaccine {
         this.hospital = hospital;
         this.quantity = quantity;
     }
+
+    public void minus1(Long quantity){
+        this.quantity = quantity -1;
+    }
 }
