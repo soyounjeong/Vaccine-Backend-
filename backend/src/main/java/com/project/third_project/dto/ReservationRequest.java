@@ -11,12 +11,14 @@ public class ReservationRequest {
     private Long hospitalId;
     private Long availableDateId;
     private Long availableTimeId;
+    private Long vaccineId;
 
     @Builder
-    public ReservationRequest(Long usersId, Long hospitalId, Long availableDateId, Long availableTimeId){
+    public ReservationRequest(Long usersId, Long hospitalId, Long availableDateId, Long availableTimeId, Long vaccineId){
         this.usersId = usersId;
         this.hospitalId = hospitalId;
         this.availableDateId = availableDateId;
         this.availableTimeId = availableTimeId;
+        this.vaccineId = vaccineId;
     }
 }

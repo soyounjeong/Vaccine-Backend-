@@ -9,6 +9,8 @@ import com.project.third_project.entity.hospital.HospitalRepository;
 import com.project.third_project.entity.reservation.Reservation;
 import com.project.third_project.entity.reservation.ReservationRepository;
 import com.project.third_project.entity.users.UsersRepository;
+import com.project.third_project.entity.vaccine.Vaccine;
+import com.project.third_project.entity.vaccine.VaccineRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,7 @@ public class ReservationService {
     private final HospitalRepository hospitalRepository;
     private final AvailableDateRepository availableDateRepository;
     private final AvailableTimeRepository availableTimeRepository;
+    private final VaccineRepository vaccineRepository;
 
 
     @Transactional
@@ -37,6 +40,9 @@ public class ReservationService {
 
         AvailableTime availableTime = availableTimeRepository.findById(reservationRequest.getAvailableTimeId()).orElseThrow();
         availableTime.minus1(availableTime.getQuantity()); // time 갯수 수량 마이너스
+
+        Vaccine vaccine = vaccineRepository.findById(reservationRequest.getVaccineId()).orElseThrow();
+        vaccine.minus1(vaccine.getQuantity());
 
         return reservationRepository.save(reservation).getId();
     }
