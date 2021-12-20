@@ -29,7 +29,7 @@ public class AvailableTime {
         @oneToMany @ManyToMany(fetch = FetchType.Lazy) "지연 로딩"
 
         Lazy(지연로딩) : 사용할때 연관된 엔티티를 조회
-        Earger(즉시로딩) : 한꺼번에 모든 걸 가져옴
+        Eager(즉시로딩) : 한꺼번에 모든 걸 가져옴
     */
     private AvailableDate availableDate;
 
