@@ -1,5 +1,6 @@
 package com.project.third_project.service;
 
+import com.project.third_project.dto.HospitalListResponse;
 import com.project.third_project.entity.hospital.Hospital;
 import com.project.third_project.entity.hospital.HospitalRepository;
 import com.project.third_project.dto.HospitalRequest;
@@ -8,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -39,6 +42,17 @@ public class HospitalService {
         return new HospitalResponse(entity);
     }
 
+    public List<HospitalListResponse> list(){
+        List<Hospital> hospitalList = hospitalRepository.findAll();
+        List<HospitalListResponse> hospitalResponseList = hospitalList.stream()
+                .map(hospital -> {
+                    HospitalListResponse hospitalListResponse = HospitalListResponse.builder()
+                            .name(hospital.getName())
+                            .build();
+                    return hospitalListResponse;
+                }).collect(Collectors.toList());
+        return hospitalResponseList;
+    }
     
 
 }
