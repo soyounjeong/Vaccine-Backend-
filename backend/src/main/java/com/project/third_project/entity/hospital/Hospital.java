@@ -2,8 +2,6 @@ package com.project.third_project.entity.hospital;
 
 import com.project.third_project.entity.BaseTimeEntity;
 import com.project.third_project.entity.availableDate.AvailableDate;
-import com.project.third_project.entity.reservation.Reservation;
-import com.project.third_project.entity.storage.Storage;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,11 +27,13 @@ public class Hospital extends BaseTimeEntity {
     @Column(nullable = false)
     private String hp;
 
-    @OneToMany(mappedBy = "hospital")
-    private List<Storage> storageList;
 
-    @OneToOne(mappedBy = "hospital")
-    private Reservation reservation;
+//    @OneToOne(mappedBy = "hospital")
+//    private Reservation reservation;
+    /* one to one 양방향 매핑에서 연관관계의 주인이 아닌곳에서 호출한다면 지연 로딩이 아닌 즉시 로딩이 동작
+        why?
+            프록시는 null을 감쌀 수 없기 때문에 참조하고 있는 객체가 null인지 null이 아닌지 확인하는 쿼리를 실행해야 하기 때문
+     */
 
     @OneToMany(mappedBy = "hospital")
     private List<AvailableDate> availableDateList;

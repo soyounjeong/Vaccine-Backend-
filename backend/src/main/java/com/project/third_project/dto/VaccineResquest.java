@@ -1,5 +1,6 @@
 package com.project.third_project.dto;
 
+import com.project.third_project.entity.hospital.Hospital;
 import com.project.third_project.entity.vaccine.Vaccine;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,21 +10,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class VaccineResquest {
     private String name;
-    private String region;
-    private String expiration;
+    private Long hospitalId;
+    private Long quantity;
+
 
     @Builder
-    public VaccineResquest(String name ,String region, String expiration){
+    public VaccineResquest(String name ,Long hospitalId, Long quantity){
         this.name = name;
-        this.region = region;
-        this.expiration = expiration;
+        this.hospitalId = hospitalId;
+        this.quantity = quantity;
     }
 
-    public Vaccine toEntity(){
-        return Vaccine.builder()
-                .name(name)
-                .region(region)
-                .expiration(expiration)
-                .build();
-    }
 }

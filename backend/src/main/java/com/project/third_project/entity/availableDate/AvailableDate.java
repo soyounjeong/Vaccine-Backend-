@@ -2,8 +2,6 @@ package com.project.third_project.entity.availableDate;
 
 import com.project.third_project.entity.abailableTime.AvailableTime;
 import com.project.third_project.entity.hospital.Hospital;
-import com.project.third_project.entity.reservation.Reservation;
-import com.project.third_project.entity.storage.Storage;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,20 +26,21 @@ public class AvailableDate {
     @OneToMany(mappedBy = "availableDate") // mappedBy : 주인 반대쪽에서 적는게 맞음
     private List<AvailableTime> availableTimeList; // 1대 다의 경우 List나 Set으로 받아올것!
 
-    @OneToOne(mappedBy = "availableDate")
-    private Reservation reservation;
+//    @OneToOne(mappedBy = "availableDate")
+//    private Reservation reservation;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Hospital hospital;
 
-    @ManyToOne
-    private Storage storage;
 
     @Builder
-    public AvailableDate(Hospital hospital, Storage storage, String date, Long quantity){
+    public AvailableDate(Hospital hospital,  String date, Long quantity){
         this.hospital = hospital;
-        this.storage = storage;
         this.date = date;
         this.quantity = quantity;
+    }
+
+    public void minus1(Long quantity){
+        this.quantity = quantity -1;
     }
 }

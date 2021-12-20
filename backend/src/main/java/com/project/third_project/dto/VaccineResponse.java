@@ -6,12 +6,12 @@ import lombok.Getter;
 @Getter
 public class VaccineResponse {
     private String name;
-    private String region;
-    private String expiration;
+    private Long hospitalId;
+    private Long quantity;
 
     public VaccineResponse(Vaccine vaccine){
         this.name = vaccine.getName();
-        this.region = vaccine.getRegion();
-        this.expiration = vaccine.getExpiration();
+        this.hospitalId = vaccine.getHospital().getId();
+        this.quantity = vaccine.getQuantity();
     }
 }

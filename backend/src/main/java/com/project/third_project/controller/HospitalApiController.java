@@ -37,8 +37,8 @@ public class HospitalApiController {
     }
 
     @GetMapping("/api/hospital/list")
-    public List<HospitalListResponse> list(){
-        return hospitalService.list();
+    public List<HospitalListResponse> hospitalList(){
+        return hospitalService.hospitalList();
     }
 
 

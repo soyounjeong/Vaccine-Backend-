@@ -42,7 +42,7 @@ public class HospitalService {
         return new HospitalResponse(entity);
     }
 
-    public List<HospitalListResponse> list(){
+    public List<HospitalListResponse> hospitalList(){
         List<Hospital> hospitalList = hospitalRepository.findAll();
         List<HospitalListResponse> hospitalResponseList = hospitalList.stream()
                 .map(hospital -> {

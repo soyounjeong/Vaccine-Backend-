@@ -23,7 +23,7 @@ public class AvailableTime {
     private  Long quantity;
 
     // ❗️fetch를 양쪽에 거는지 찾기❗ ️
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     /*
         @ManyToOne, @OneToOne(fetch = FetchType.EAGER) "즉시 로딩"
         @oneToMany @ManyToMany(fetch = FetchType.Lazy) "지연 로딩"
@@ -33,13 +33,17 @@ public class AvailableTime {
     */
     private AvailableDate availableDate;
 
-    @OneToOne(mappedBy = "availableTime")
-    private Reservation reservation;
+//    @OneToOne(mappedBy = "availableTime")
+//    private Reservation reservation;
 
     @Builder
     public AvailableTime(AvailableDate availableDate, String time, Long quantity){
         this.availableDate = availableDate;
         this.time = time;
         this.quantity = quantity;
+    }
+
+    public void minus1(Long quantity){
+        this.quantity = quantity -1;
     }
 }

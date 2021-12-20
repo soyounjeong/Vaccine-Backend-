@@ -1,5 +1,7 @@
 package com.project.third_project.service;
 
+import com.project.third_project.dto.AvailableDateListResponse;
+import com.project.third_project.dto.AvailableTimeListResponse;
 import com.project.third_project.dto.AvailableTimeRequest;
 import com.project.third_project.entity.abailableTime.AvailableTime;
 import com.project.third_project.entity.abailableTime.AvailableTimeRepository;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +31,18 @@ public class AvailableTimeService {
                 .quantity(availableTimeRequest.getQuantity())
                 .build();
         return availableTimeRepository.save(availableTime).getId();
+    }
+
+    public List<AvailableTimeListResponse> availableTimeList(Long hospitalId){
+        List<AvailableTime> availableTimeList = availableTimeRepository.findAllByAvailableDateId(hospitalId);
+        List<AvailableTimeListResponse> availableTimeListResponses = availableTimeList.stream()
+                .map(availableTime -> {
+                    AvailableTimeListResponse availableTimeListResponse = AvailableTimeListResponse.builder()
+                            .time(availableTime.getTime())
+                            .build();
+                    return  availableTimeListResponse;
+                }).collect(Collectors.toList());
+        return availableTimeListResponses;
     }
 
 }

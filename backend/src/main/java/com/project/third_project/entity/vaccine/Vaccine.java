@@ -1,6 +1,6 @@
 package com.project.third_project.entity.vaccine;
 
-import com.project.third_project.entity.storage.Storage;
+import com.project.third_project.entity.hospital.Hospital;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,25 +19,23 @@ public class Vaccine {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String region;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Hospital hospital;
 
     @Column(nullable = false)
-    private String expiration;
+    private Long quantity;
 
-    @OneToMany(mappedBy = "vaccine")
-    private List<Storage> storageList;
 
     @Builder
-    public Vaccine(String name, String region, String expiration){
+    public Vaccine(String name, Hospital hospital, Long quantity){
         this.name = name;
-        this.region = region;
-        this.expiration = expiration;
+        this.hospital = hospital;
+        this.quantity = quantity;
     }
 
-    public void update(String name, String region, String expiration){
+    public void update(String name, Hospital hospital, Long quantity){
         this.name = name;
-        this.region = region;
-        this.expiration = expiration;
+        this.hospital = hospital;
+        this.quantity = quantity;
     }
 }
