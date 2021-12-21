@@ -1,13 +1,14 @@
-package com.project.third_project.dto;
+package com.project.third_project.config.auth;
 
 import com.project.third_project.entity.users.Gender;
-import com.project.third_project.entity.users.Role;
 import com.project.third_project.entity.users.Users;
 import com.project.third_project.entity.users.Vaccination;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @Getter
-public class UsersResponse {
+public class SessionUser implements Serializable {
     private String email;
     private String name;
     private String pw;
@@ -18,9 +19,8 @@ public class UsersResponse {
     private String hp;
     private Vaccination first;
     private Vaccination second;
-    private Role role;
 
-    public UsersResponse(Users users){
+    public SessionUser(Users users){
         this.email = users.getEmail();
         this.name = users.getName();
         this.pw = users.getPw();
@@ -31,7 +31,5 @@ public class UsersResponse {
         this.hp = users.getHp();
         this.first = users.getFirst();
         this.second = users.getSecond();
-        this.role = users.getRole();
     }
-
 }

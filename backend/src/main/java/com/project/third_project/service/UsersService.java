@@ -27,7 +27,7 @@ public class UsersService {
     @Transactional
     public Long update(Long id, UsersRequest usersRequest){
         Users users = usersRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("계정 없음"));
-        users.update(usersRequest.getName(), usersRequest.getPw(), usersRequest.getGender(), usersRequest.getAge(), usersRequest.getAddress(), usersRequest.getAddressDetail(), usersRequest.getHp(), usersRequest.getFirst(), usersRequest.getSecond(), usersRequest.getRole());
+        users.update(usersRequest.getEmail(), usersRequest.getName(), usersRequest.getPw(), usersRequest.getGender(), usersRequest.getAge(), usersRequest.getAddress(), usersRequest.getAddressDetail(), usersRequest.getHp(), usersRequest.getFirst(), usersRequest.getSecond(), usersRequest.getRole());
         return id;
     }
 

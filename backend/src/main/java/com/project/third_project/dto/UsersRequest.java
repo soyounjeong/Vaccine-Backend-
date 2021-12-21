@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class UsersRequest {
+    private String email;
     private String name;
     private String pw;
     private Gender gender;
@@ -23,7 +24,8 @@ public class UsersRequest {
     private Role role;
 
     @Builder
-    public UsersRequest(String name, String pw, Gender gender, int age, String address, String addressDetail, String hp, Vaccination first, Vaccination second, Role role){
+    public UsersRequest(String email, String name, String pw, Gender gender, int age, String address, String addressDetail, String hp, Vaccination first, Vaccination second, Role role){
+        this.email = email;
         this.name = name;
         this.pw = pw;
         this.gender = gender;
@@ -38,6 +40,7 @@ public class UsersRequest {
 
     public Users toEntity(){
         return Users.builder()
+                .email(email)
                 .name(name)
                 .pw(pw)
                 .gender(gender)

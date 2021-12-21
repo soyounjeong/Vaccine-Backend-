@@ -12,11 +12,11 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Hospital extends BaseTimeEntity {
+public class Hospital extends BaseTimeEntity { // 클래스
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; // 필드 = 변수, 속성, 멤버변수
 
     @Column(nullable = false)
     private String name;
@@ -38,15 +38,24 @@ public class Hospital extends BaseTimeEntity {
     @OneToMany(mappedBy = "hospital")
     private List<AvailableDate> availableDateList;
 
+    /*
+        생성자란?
+        - 메소드와 비슷한 모양을 가지고 있으나, 리턴 타입이 없고 클래스 이름과 동일
+     */
     @Builder
-    public Hospital(String name, String address, String hp){
-        this.name = name;
+    public Hospital(String name, String address, String hp){ // 생성자
+        this.name = name; // this 자기자신
         this.address = address;
         this.hp = hp;
     }
 
-    public void update(String name, String address, String hp){
-        this.name = name;
+    /*
+        메소드란?
+        - 필드를 읽고 수정하는 역할도 하지만, 다른 객체를 생성해서 다양한 기능 수행 
+     */
+
+    public void update(String name, String address, String hp){ // 메소드
+        this.name = name;// 왼쪽이 필드 오른쪽이 매개변수 => 필드 초기화
         this.address = address;
         this.hp = hp;
     }
