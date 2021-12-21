@@ -72,7 +72,7 @@ public class Users extends BaseTimeEntity {
         this.role = role;
     }
 
-    public Users update(String email, String name, String pw, Gender gender, int age, String address, String addressDetail, String hp, Vaccination first, Vaccination second){
+    public void update(String email, String name, String pw, Gender gender, int age, String address, String addressDetail, String hp, Vaccination first, Vaccination second){
         this.email = email;
         this.name = name;
         this.pw = pw;
@@ -83,11 +83,6 @@ public class Users extends BaseTimeEntity {
         this.hp = hp;
         this.first = first;
         this.second= second;
-        return this;
-    }
-
-    public String getRoleKey(){
-        return this.role.getKey();
     }
 
 }
