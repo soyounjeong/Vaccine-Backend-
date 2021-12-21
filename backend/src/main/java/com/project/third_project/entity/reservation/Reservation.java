@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Reservation {
+public class Reservation { // 클래스
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

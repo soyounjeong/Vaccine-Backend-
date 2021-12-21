@@ -8,6 +8,7 @@ import lombok.Getter;
 
 @Getter
 public class UsersResponse {
+    private String email;
     private String name;
     private String pw;
     private Gender gender;
@@ -20,6 +21,7 @@ public class UsersResponse {
     private Role role;
 
     public UsersResponse(Users users){
+        this.email = users.getEmail();
         this.name = users.getName();
         this.pw = users.getPw();
         this.gender = users.getGender();

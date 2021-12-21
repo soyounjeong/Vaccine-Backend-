@@ -17,6 +17,9 @@ public class Users extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    private String email;
+
     @Column(nullable = false, length = 500)
     private String name;
 
@@ -55,7 +58,8 @@ public class Users extends BaseTimeEntity {
     private Reservation reservation;
 
     @Builder
-    public Users(String name, String pw, Gender gender, int age, String address, String addressDetail, String hp, Vaccination first, Vaccination second, Role role){
+    public Users(String email, String name, String pw, Gender gender, int age, String address, String addressDetail, String hp, Vaccination first, Vaccination second,Role role){
+        this.email = email;
         this.name = name;
         this.pw = pw;
         this.gender = gender;
@@ -68,7 +72,8 @@ public class Users extends BaseTimeEntity {
         this.role = role;
     }
 
-    public void update(String name, String pw, Gender gender, int age, String address, String addressDetail, String hp, Vaccination first, Vaccination second, Role role){
+    public void update(String email, String name, String pw, Gender gender, int age, String address, String addressDetail, String hp, Vaccination first, Vaccination second){
+        this.email = email;
         this.name = name;
         this.pw = pw;
         this.gender = gender;
@@ -78,7 +83,6 @@ public class Users extends BaseTimeEntity {
         this.hp = hp;
         this.first = first;
         this.second= second;
-        this.role = role;
     }
 
 }
