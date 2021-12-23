@@ -1,6 +1,6 @@
 import React, { useState, Component } from "react";
 import DaumPostcode from "react-daum-postcode";
-
+import RegistPage from "../pages/Regist";
 const PopupPostCode = (props) => {
 
     const [address, setAddress] = useState(''); // 주소

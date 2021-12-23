@@ -8,8 +8,7 @@ import DaumPostcode from 'react-daum-postcode';
 import PopupDom from '../components/PopupDom';
 import PopupPostCode from '../components/PopupPostCode';
 
-const RegistPage = () => {
-
+const RegistPage = (props) => {
     let emailDisable = false;
     let passwordDisable = false;
     let nameDisable = false;
@@ -66,6 +65,7 @@ input, textarea, button { padding: 0; outline: 0; border: 0; resize: none; borde
     margin-bottom: 5rem;
 }
 `
+console.log(props.data)
 const formRef = React.createRef();
 
 const [email, setEmail] = React.useState('')
@@ -228,7 +228,7 @@ const idDisabled = () => {
 
     return(
         <>
-        <Header></Header>
+        
         <Regist>
             <div className="container">
                 <div className="body">
@@ -264,8 +264,8 @@ const idDisabled = () => {
                     <p>상세 주소</p>
                     <Daum></Daum>
                     <div className="forheigth">
-                        <input id="address1"value={address} />
-                        <input id="address2" value={addressDetail} placeholder="상세주소" />
+                        <input id="address1"/>
+                        <input id="address2"  placeholder="상세주소" />
                     </div>
                     
                     <div>

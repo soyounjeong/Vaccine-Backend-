@@ -3,6 +3,7 @@ import './app.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'; //a태그 기능
 import LoginPage from './pages/Login';
 import RegistPage from './pages/Regist'
+import MainPage from './pages/Main'
 function App() {
   return (
     <>
@@ -10,6 +11,8 @@ function App() {
       <Routes>
         <Route path={"/"} element={<LoginPage/>}/>    
         <Route path={"/regist"} element={<RegistPage/>}/>  
+        <Route path={"/main"} element={<MainPage/>}/>  
+
       </Routes>
     </Router>
     </>

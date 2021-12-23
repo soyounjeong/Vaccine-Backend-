@@ -75,7 +75,7 @@ button{
 `
     return(
         <>
-        <Header></Header>
+        
         <Login>
         <div className="container">
 
