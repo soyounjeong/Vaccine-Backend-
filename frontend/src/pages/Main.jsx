@@ -78,7 +78,7 @@ const MainPage = () => {
         <div className="container">
 
             <div className="body">
-                <h2>사실 안맞아도 됩니다.</h2>
+                <h2>사실 안맞아도 됩니다.람쥐</h2>
                 <div className="Box">
                     <div className="leftBox">
 
