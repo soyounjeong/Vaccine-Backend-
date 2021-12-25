@@ -33,13 +33,13 @@
 진행 예정 
 
 ## <b>팀원 </b> ##
-## Backend ##
-### 👨‍💻 정영범 <br/> ###
+### Backend ###
+#### 👨‍💻 정영범 <br/> ####
 <a href="https://github.com/jeongyoungbeom">
 <img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/></a>
 <br/>
 
-### 👩🏻‍💻 소윤정 <br/> ###
+#### 👩🏻‍💻 소윤정 <br/> ####
 <a href="https://github.com/soyounjeong">
 <img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/></a>
 <a href="https://velog.io/@soyounjeong">
@@ -50,7 +50,7 @@
 </a>
 <br/><br/>
 
-## FrontEnd ##
-### 👨‍💻 이재성 <br/> ###
+### FrontEnd ###
+#### 👨‍💻 이재성 <br/> ####
 <a href="https://github.com/jaesung712">
 <img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/></a>
