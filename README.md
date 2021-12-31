@@ -49,8 +49,3 @@
 <img src="https://img.shields.io/badge/Notion-000000?style=flat-square&logo=Notion&logoColor=white"/>
 </a>
 <br/><br/>
-
-### FrontEnd ###
-#### 👨‍💻 이재성 <br/> ####
-<a href="https://github.com/jaesung712">
-<img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/></a>
