@@ -26,7 +26,7 @@ public class HospitalService {
     public Long update(Long id, HospitalRequest hospitalRequest){
         Hospital hospital = hospitalRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다."));
         // findById => 영속성컨텍스트 때문에 영구저장됨
-        hospital.update(hospitalRequest.getName(), hospitalRequest.getAddress(), hospitalRequest.getHp());
+                hospital.update(hospitalRequest.getName(), hospitalRequest.getAddress(), hospitalRequest.getHp());
         return id;
     }
 
