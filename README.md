@@ -2,7 +2,7 @@
 * 개발 기간 : 2021.12.13 ~ (진행중)
 * 주제 : 백신 예약 웹 프로그램
 * 개발 : IntelliJ, Visual Studio code
-* 사용 언어 : Java(JDK), Mysql, React, Javascript(ES6)
+* 사용 언어 : Java(JDK), Mysql, Javascript(ES6)
 * 사용 기술 : Spring-Boot(2.5), JPA/Hiberrate, Restful API, 테스트(h2)
 
 ## 프로젝트 상세 내용 ##
